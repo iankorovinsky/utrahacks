@@ -55,22 +55,27 @@ const sendFlow = async (recepient, amount) => {
   console.log({ txDetails });
 };
 
-(async (balance) => {
-  console.clear();
-  // "reauthenticate" will ensure your session works properly
-  // and present you a popup to sign in
-  await reauthenticate();
 
-  // This is an example account we've created to this exibition
-  // You can replace it with one of your addresses
-  const recepient = "0x982aeefa208cb8a7";
-
-  // Check "initial" balance first
-  await getFlowBalance(recepient);
-
-  // Send some FLOW tokens to Recepient
-  await sendFlow(recepient, balance);
-
-  // Ensure that Recepient's balance has been changed
-  await getFlowBalance(recepient);
-})();
+export const runScript = (balance) => {
+  console.log("External script is running!");
+  // Add your script's logic here
+  (async () => {
+    console.clear();
+    // "reauthenticate" will ensure your session works properly
+    // and present you a popup to sign in
+    await reauthenticate();
+  
+    // This is an example account we've created to this exibition
+    // You can replace it with one of your addresses
+    const recepient = "0x982aeefa208cb8a7";
+  
+    // Check "initial" balance first
+    await getFlowBalance(recepient);
+  
+    // Send some FLOW tokens to Recepient
+    await sendFlow(recepient, balance);
+  
+    // Ensure that Recepient's balance has been changed
+    await getFlowBalance(recepient);
+  })();
+};
