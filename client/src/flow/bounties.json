@@ -1,0 +1,53 @@
+{
+    "bounties": [
+      {
+        "name": "Colony Construction",
+        "description": "Assist in the building of new habitat structures.",
+        "assigner": "spaCey",
+        "price": "8"
+      },
+      {
+        "name": "Drainage System Repair",
+        "description": "Fix leaks and improve the efficiency of the colony's water recycling system.",
+        "assigner": "spaCey",
+        "price": "6"
+      },
+      {
+        "name": "Hydroponic Farming",
+        "description": "Cultivate and harvest crops in the hydroponic farms.",
+        "assigner": "spaCey",
+        "price": "5"
+      },
+      {
+        "name": "Solar Panel Maintenance",
+        "description": "Conduct routine maintenance and repairs on solar panels.",
+        "assigner": "spaCey",
+        "price": "7"
+      },
+      {
+        "name": "Atmosphere Monitoring",
+        "description": "Analyze and report on the colony's atmospheric conditions.",
+        "assigner": "spaCey",
+        "price": "4"
+      },
+      {
+        "name": "Medical Research",
+        "description": "Participate in medical studies to understand health in Martian conditions.",
+        "assigner": "spaCey",
+        "price": "9"
+      },
+      {
+        "name": "Rover Deployment",
+        "description": "Assist in the deployment and operation of exploration rovers.",
+        "assigner": "spaCey",
+        "price": "7"
+      },
+      {
+        "name": "Communication Systems Upgrade",
+        "description": "Work on enhancing the colony's communication systems with Earth.",
+        "assigner": "spaCey",
+        "price": "8"
+      }
+    ]
+  }
+  
