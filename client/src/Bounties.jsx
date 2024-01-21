@@ -5,59 +5,37 @@ import { runScript } from './flow/transaction'; // Import runScript
 const MarsBountiesList = () => {
 
     
-  
-  const handleTransaction = async (bounty, index) => {
-    await runScript(bounty.price); // Call runScript with the bounty price
-
-    // After the script is run, send a request to remove the bounty
-    try {
-        const response = await fetch('http://localhost:5002/remove-bounty', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ index }), // Send the index or unique identifier
-        });
-
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-
-        console.log("Bounty removed successfully");
-    } catch (error) {
-        console.error("Error in removing bounty:", error);
-    }
+    const handleTransaction = async (bounty, index) => {
+        try {
+            await runScript(bounty.price);
     
-    try {
-        console.log("Starting NFT...")
-        const response = await fetch('http://localhost:5002/mint-nft', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(bounty),
-        });
-        console.log("Mining NFT...")
-
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
+            // Remove Bounty
+            const removeResponse = await fetch('http://localhost:5002/remove-bounty', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ index }),
+            });
+            if (!removeResponse.ok) throw new Error('Error in removing bounty');
+                console.log("Bounty removed successfully");
+    
+            // Mint NFT
+            const mintResponse = await fetch('http://localhost:5002/mint-nft', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(bounty),
+            });
+            if (!mintResponse.ok) throw new Error('Error in minting NFT');
+            const mintResponseData = await mintResponse.json();
+            console.log("NFT minted successfully:", mintResponseData);
+    
+            // Open transaction URL if available
+            if (mintResponseData.transaction_external_url) {
+                window.open(mintResponseData.transaction_external_url, '_blank');
+            }
+        } catch (error) {
+            console.error(error);
         }
-
-        const responseData = await response.json();
-        console.log("NFT minted successfully:", responseData);
-
-        // Check if the transaction URL exists in the response and open it in a new tab
-        window.open(responseData.transaction_external_url, '_blank');
-        //window.open("https://waterloo.mywconline.net/schedule2.php?scheduleid=sc15911b8ad6ab10", '_blank');
-        if (responseData && responseData.transaction_external_url) {
-            //window.open(responseData.transaction_external_url, '_blank');
-        }
-
-        console.log("NFT minted successfully YAYY", responseData);
-    } catch (error) {
-        console.error("Error in minting NFT:", error);
-    }
-};
+    };
     
     // Example usage
     // mintNFT({ /* ... bounty data ... */ });
