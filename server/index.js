@@ -74,43 +74,36 @@ app.post('/remove-bounty', (req, res) => {
     });
 });
 
-app.post('/mint-nft', (req, res) => {
+app.post('/mint-nft', async (req, res) => {
     const bounty = req.body;
-    /*
-    // Implement your NFT minting logic here
-    console.log("Minting NFT with data:", bounty);
-    const options = {
-        method: 'POST',
-        headers: {
-          accept: 'application/json',
-          'content-type': 'application/json',
-          Authorization: '4eee2cb8-3210-407c-9d3f-fbb8dcf09995'
-        },
-        body: JSON.stringify({
-          chain: 'goerli',
-          name: bounty.name,
-          file_url: bounty.image,
-          description: bounty.description,
-          mint_to_address: '0x3c88Ecbb86700DeF3560358067a47A00E6F2Eab4'
-        })
-    };
-      
-    fetch('https://api.nftport.xyz/v0/mints/easy/urls', options)
-    .then(response => response.json())
-    .then(response => {
-        console.log(response);
-        if (response && response.transaction_external_url) {
-            window.open(response.transaction_external_url, '_blank');
-        } else {
-            throw new Error("Invalid response or missing URL.");
-        }
-    })
-    .catch(err => console.error(err));
-    */
-    // For demonstration purposes, just send back the received data
-    res.json({ message: 'NFT minted successfully', data: bounty });
-    
+
+    try {
+        const options = {
+            method: 'POST',
+            headers: {
+                accept: 'application/json',
+                'content-type': 'application/json',
+                Authorization: '4eee2cb8-3210-407c-9d3f-fbb8dcf09995'
+            },
+            body: JSON.stringify({
+                chain: 'goerli',
+                name: bounty.name,
+                file_url: bounty.image,
+                description: bounty.description,
+                mint_to_address: '0x3c88Ecbb86700DeF3560358067a47A00E6F2Eab4'
+            })
+        };
+        
+        const apiResponse = await fetch('https://api.nftport.xyz/v0/mints/easy/urls', options);
+        const apiResponseData = await apiResponse.json();
+
+        console.log(apiResponseData);
+        res.json(apiResponseData);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Error minting NFT');
+    }
 });
 
 
-app.listen(5000, () => console.log('Server running on port 5000'));
+app.listen(5002, () => console.log('Server running on port 5002'));
