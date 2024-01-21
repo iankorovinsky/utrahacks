@@ -27,10 +27,18 @@ sock = BluetoothSocket(RFCOMM)
 sock.connect((esp32_bt_address, port))
 print("Connected to {}".format(name))
 
+
+f = open("read_write_file.txt", "r")
+
+
 # Now let's send data
 while True:
     # Write a string to the ESP32
-    data_to_send = input("Enter data to send: ")
+    line = f.readline().strip() # reading the file for input
+    
+    data_to_send = line 
+    # For Manual Input:
+    # data_to_send = input("Enter data to send: ")
     if data_to_send.lower() == 'exit':
         break
     sock.send(data_to_send + '\n')  # Send the data with a newline character
