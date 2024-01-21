@@ -7,9 +7,9 @@ config({
   // We will also specify the network as some of the FCL parts need it to properly do it's work
   "flow.network": "testnet",
   // This will be the title of our DApp
-  "app.detail.title": "Meow DApp",
+  "app.detail.title": "spaCey DAO",
   // This is just a kitten photo, we will use for the icon
-  "app.detail.icon": "https://placekitten.com/g/200/200",
+  "app.detail.icon": "https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/1556252/planet-mars-clipart-md.png",
   // Next two will define where Wallet Discovery is located
   "discovery.wallet": "https://fcl-discovery.onflow.org/testnet/authn",
   "discovery.authn.endpoint":
