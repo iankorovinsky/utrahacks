@@ -19,7 +19,7 @@ print("You have selected {}".format(name))
 
 # Replace with your ESP32's Bluetooth address
 # Example: '01:23:45:67:89:AB'
-esp32_bt_address = 'b0:a7:32:2b:53:3a'
+esp32_bt_address = 'b0:a7:32:2a:8a:46'
 
 # Connect to the ESP32 over Bluetooth
 port = 1  # The standard port for Bluetooth Serial on ESP32
@@ -28,17 +28,17 @@ sock.connect((esp32_bt_address, port))
 print("Connected to {}".format(name))
 
 
-f = open("read_write_file.txt", "r")  #open the file for reading input
+# f = open("read_write_file.txt", "r")  #open the file for reading input
 
 
 # Now let's send data
 while True:
     # Write a string to the ESP32
-    line = f.readline().strip() # reading the file for input
+    # line = f.readline().strip() # reading the file for input
     
-    data_to_send = line 
+    # data_to_send = line 
     # For Manual Input:
-    # data_to_send = input("Enter data to send: ")
+    data_to_send = input("Enter data to send: ")
     if data_to_send.lower() == 'exit':
         break
     sock.send(data_to_send + '\n')  # Send the data with a newline character
