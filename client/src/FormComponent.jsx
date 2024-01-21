@@ -15,7 +15,7 @@ function FormComponent() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:5000/append', {
+            const response = await fetch('http://localhost:5002/append', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -40,14 +40,16 @@ function FormComponent() {
     
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Name" />
-            <input type="text" name="description" value={formData.description} onChange={handleChange} placeholder="Description" />
-            <input type="text" name="assigner" value={formData.assigner} onChange={handleChange} placeholder="Assigner" />
-            <input type="text" name="price" value={formData.price} onChange={handleChange} placeholder="Price" />
-            <input type="text" name="image" value={formData.image} onChange={handleChange} placeholder="Image" />
-            <button type="submit">Submit</button>
-        </form>
+        <div className="h-screen w-screen align-items justify-center">
+            <form className="flex flex-col w-1/4" onSubmit={handleSubmit}>
+                <input type="text" className="bg-red" name="name" value={formData.name} onChange={handleChange} placeholder="Name" />
+                <input type="text" name="description" value={formData.description} onChange={handleChange} placeholder="Description" />
+                <input type="text" name="assigner" value={formData.assigner} onChange={handleChange} placeholder="Assigner" />
+                <input type="text" name="price" value={formData.price} onChange={handleChange} placeholder="Price" />
+                <input type="text" name="image" value={formData.image} onChange={handleChange} placeholder="Image" />
+                <button type="submit">Submit</button>
+            </form>
+        </div>
     );
 }
 

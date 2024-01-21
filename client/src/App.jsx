@@ -19,6 +19,7 @@ function App() {
             </React.Fragment>} />
             <Route path="/dao" element={<React.Fragment>
               <Navbar />
+              <FormComponent />
             </React.Fragment>} />
             <Route path="/account" element={<React.Fragment>
               <Navbar />

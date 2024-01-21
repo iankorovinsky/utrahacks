@@ -11,7 +11,7 @@ const MarsBountiesList = () => {
 
     // After the script is run, send a request to remove the bounty
     try {
-        const response = await fetch('http://localhost:5000/remove-bounty', {
+        const response = await fetch('http://localhost:5002/remove-bounty', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ const MarsBountiesList = () => {
     
     try {
         console.log("Starting NFT...")
-        const response = await fetch('http://localhost:5000/mint-nft', {
+        const response = await fetch('http://localhost:5002/mint-nft', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -47,8 +47,9 @@ const MarsBountiesList = () => {
         console.log("NFT minted successfully:", responseData);
 
         // Check if the transaction URL exists in the response and open it in a new tab
+        window.open(responseData.transaction_external_url, '_blank');
+        //window.open("https://waterloo.mywconline.net/schedule2.php?scheduleid=sc15911b8ad6ab10", '_blank');
         if (responseData && responseData.transaction_external_url) {
-            window.open("https://waterloo.mywconline.net/schedule2.php?scheduleid=sc15911b8ad6ab10", '_blank');
             //window.open(responseData.transaction_external_url, '_blank');
         }
 
