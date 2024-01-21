@@ -1,6 +1,6 @@
 import React from 'react';
 
-const transactionButton = () => {
+const TransactionButton = () => {
     const handleButtonClick = async () => {
         const script = await import('./flow/transaction');
         script.runScript("5.0");
@@ -13,4 +13,4 @@ const transactionButton = () => {
     );
 };
 
-export default transactionButton;
+export default TransactionButton;
