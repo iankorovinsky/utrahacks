@@ -1,9 +1,25 @@
 import React from 'react';
 import bountiesData from './flow/bounties.json';
 import { runScript } from './flow/transaction'; // Import runScript
+import { motion } from 'framer-motion'
 
 const MarsBountiesList = () => {
-
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+          opacity: 1,
+          transition: {
+            staggerChildren: 0.5,
+            duration: 1.5,
+          }
+        }
+    };
+      
+      const itemVariants = {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1 }
+    };
+      
     
     const handleTransaction = async (bounty, index) => {
         try {
@@ -43,13 +59,24 @@ const MarsBountiesList = () => {
 
 
     return (
-      <div>
-        <h1 className='text-white font-medium p-4 text-4xl'>Mars Colony Bounties</h1>
-        <ul className='grid grid-cols-3 gap-8 m-4 mx-6 text-white'>
-          {bountiesData.bounties.map((bounty, index) => (
-                <li key={index} className='flex flex-col transition ease-in-out duration-150 border border-3 rounded-lg hover:bg-slate-800 hover:scale-105'>
-                    <div className='flex-grow p-2'>
-                        <h2 className='font-bold text-2xl'>{bounty.name} (Price: {bounty.price})</h2>
+        <div>
+          <h1 className='text-white p-4 text-4xl font-titillium'>Mars Colony Bounties</h1>
+          <h3 className='px-4 pb-2 text-xl text-gray-400'>Claim Your FLOW Token Bounties</h3>
+          <motion.ul
+            className='grid grid-cols-3 gap-8 m-4 mx-6 text-white'
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible">
+            {bountiesData.bounties.map((bounty, index) => (
+              <motion.li key={index}
+                className='flex flex-col transition ease-in-out duration-150 border border-3 rounded-lg hover:bg-slate-800 hover:scale-105'
+                variants={itemVariants}>
+                <div className='flex-grow p-2'>
+                        <h2 className='font-titillium text-2xl'>{bounty.name} </h2>
+                        <div className='flex space-x-1'>
+                            <h2 className='text-green-500 font-bold'>Price: {bounty.price}</h2>
+                            <p className='text-green-500 font-bold'>FLOW</p>
+                        </div>
                         <div className='mt-2 rounded-md overflow-hidden'>
                           <img src={bounty.image} className='h-96 w-full object-cover'/>
                         </div>
@@ -60,15 +87,16 @@ const MarsBountiesList = () => {
                     </div>
                     <button 
                         className='flex transition ease-in-out align-items justify-center border border-1 w-1/4 m-1.5 rounded-xl hover:bg-white hover:text-slate-900'
-                        onClick={() => handleTransaction(bounty, index)}
-                    >
+                        onClick={() => handleTransaction(bounty, index)}>
                         Claim Bounty
                     </button>
-
-                </li>
-          ))}
-        </ul>
-      </div>
+              </motion.li>
+            ))}
+          </motion.ul>
+          <div className='text-gray-300 w-full align-middle'>
+            See More...
+          </div>
+        </div>
     );
 };
   
