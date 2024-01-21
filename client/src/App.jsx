@@ -17,7 +17,7 @@ function App() {
               <TransactionButton />
               <FormComponent />
             </React.Fragment>} />
-            <Route path="/wallet" element={<React.Fragment>
+            <Route path="/dao" element={<React.Fragment>
               <Navbar />
             </React.Fragment>} />
             <Route path="/account" element={<React.Fragment>

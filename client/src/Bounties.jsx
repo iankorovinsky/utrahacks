@@ -37,7 +37,7 @@ const MarsBountiesList = () => {
           {bountiesData.bounties.map((bounty, index) => (
                 <li key={index} className='flex flex-col transition ease-in-out duration-150 border border-3 rounded-lg hover:bg-slate-800 hover:scale-105'>
                     <div className='flex-grow p-2'>
-                        <h2 className='font-bold'>{bounty.name} (Price: {bounty.price})</h2>
+                        <h2 className='font-bold text-2xl'>{bounty.name} (Price: {bounty.price})</h2>
                         <div className='mt-2 rounded-md overflow-hidden'>
                           <img src={bounty.image} className='h-96 w-full object-cover'/>
                         </div>

@@ -10,8 +10,8 @@ const Navbar = () => {
                 <a href="/bounties"> 
                     Bounties
                 </a>
-                <a href="/wallet"> 
-                    Wallet
+                <a href="/dao"> 
+                    DAO
                 </a>
                 <a href="/account"> 
                     Account
