@@ -24,11 +24,19 @@ function FormComponent() {
             });
             if (response.ok) {
                 console.log("Data submitted successfully");
+                // Reset form data to initial state
+                setFormData({
+                    name: '',
+                    description: '',
+                    assigner: '',
+                    price: ''
+                });
             }
         } catch (error) {
             console.error("Error in submitting form data:", error);
         }
     };
+    
 
     return (
         <form onSubmit={handleSubmit}>
