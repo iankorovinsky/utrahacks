@@ -76,7 +76,7 @@ app.post('/remove-bounty', (req, res) => {
 
 app.post('/mint-nft', (req, res) => {
     const bounty = req.body;
-    /*
+    
     // Implement your NFT minting logic here
     console.log("Minting NFT with data:", bounty);
     const options = {
@@ -106,11 +106,11 @@ app.post('/mint-nft', (req, res) => {
         }
     })
     .catch(err => console.error(err));
-    */
+    
     // For demonstration purposes, just send back the received data
     res.json({ message: 'NFT minted successfully', data: bounty });
     
 });
 
 
-app.listen(5000, () => console.log('Server running on port 5000'));
+app.listen(5002, () => console.log('Server running on port 5002'));
