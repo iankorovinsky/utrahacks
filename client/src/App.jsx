@@ -14,7 +14,6 @@ function App() {
             <Route path="/bounties" element={<React.Fragment>
               <Navbar />
               <MarsBountiesList />
-              <TransactionButton />
               <FormComponent />
             </React.Fragment>} />
             <Route path="/dao" element={<React.Fragment>

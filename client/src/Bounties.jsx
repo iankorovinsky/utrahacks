@@ -74,8 +74,17 @@ const MarsBountiesList = () => {
                 <div className='flex-grow p-2'>
                         <h2 className='font-titillium text-2xl'>{bounty.name} </h2>
                         <div className='flex space-x-1'>
-                            <h2 className='text-green-500 font-bold'>Price: {bounty.price}</h2>
-                            <p className='text-green-500 font-bold'>FLOW</p>
+                        <h2 className={`${
+                        bounty.price >= 7 ? 'text-red-500' :
+                        bounty.price >= 5 ? 'text-yellow-500' :
+                        'text-green-500'
+                        } font-bold`}>Price: {bounty.price}
+                        </h2>
+                            <p className={`${
+                        bounty.price >= 7 ? 'text-red-500' :
+                        bounty.price >= 5 ? 'text-yellow-500' :
+                        'text-green-500'
+                        } font-bold`}>FLOW</p>
                         </div>
                         <div className='mt-2 rounded-md overflow-hidden'>
                           <img src={bounty.image} className='h-96 w-full object-cover'/>
@@ -93,9 +102,6 @@ const MarsBountiesList = () => {
               </motion.li>
             ))}
           </motion.ul>
-          <div className='text-gray-300 w-full align-middle'>
-            See More...
-          </div>
         </div>
     );
 };

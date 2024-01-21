@@ -6,7 +6,7 @@ const Navbar = () => {
             <div className="w-1/2 font-titillium">
                 SpaCey
             </div>
-            <div className="flex flex-row space-x-12 text-2xl font-titillium">
+            <div className="flex flex-row space-x-12 text-2xl font-titillium px-2">
                 <a href="/bounties"> 
                     Bounties
                 </a>
