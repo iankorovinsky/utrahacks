@@ -29,7 +29,8 @@ function FormComponent() {
                     name: '',
                     description: '',
                     assigner: '',
-                    price: ''
+                    price: '',
+                    image: ''
                 });
             }
         } catch (error) {
@@ -44,6 +45,7 @@ function FormComponent() {
             <input type="text" name="description" value={formData.description} onChange={handleChange} placeholder="Description" />
             <input type="text" name="assigner" value={formData.assigner} onChange={handleChange} placeholder="Assigner" />
             <input type="text" name="price" value={formData.price} onChange={handleChange} placeholder="Price" />
+            <input type="text" name="image" value={formData.image} onChange={handleChange} placeholder="Image" />
             <button type="submit">Submit</button>
         </form>
     );

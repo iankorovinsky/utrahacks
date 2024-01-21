@@ -41,31 +41,6 @@
       "image": "https://cdn-prod.medicalnewstoday.com/content/images/articles/327/327372/gloved-hand-picking-samples-for-analysis.jpg",
       "assigner": "spaCey",
       "price": "9.0"
-    },
-    {
-      "name": "Rover Deployment",
-      "description": "Assist in the deployment and operation of exploration rovers.",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/d/d8/NASA_Mars_Rover.jpg",
-      "assigner": "spaCey",
-      "price": "7.0"
-    },
-    {
-      "name": "a",
-      "description": "a",
-      "assigner": "a",
-      "price": "a"
-    },
-    {
-      "name": "get rid of elijah",
-      "description": "he's working on his slidedeck instead of hacking",
-      "assigner": "0xspacey",
-      "price": "0.01"
-    },
-    {
-      "name": "a",
-      "description": "a",
-      "assigner": "a",
-      "price": "a"
     }
   ]
 }
