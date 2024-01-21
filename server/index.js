@@ -76,7 +76,7 @@ app.post('/remove-bounty', (req, res) => {
 
 app.post('/mint-nft', (req, res) => {
     const bounty = req.body;
-
+    /*
     // Implement your NFT minting logic here
     console.log("Minting NFT with data:", bounty);
     const options = {
@@ -96,17 +96,20 @@ app.post('/mint-nft', (req, res) => {
     };
       
     fetch('https://api.nftport.xyz/v0/mints/easy/urls', options)
-        .then(response => response.json())
-        .then(response => console.log(response))
-        .catch(err => console.error(err));
-    try {
-        window.open(response.transaction_external_url, '_blank');
-    } catch (err) {
-        console.error("Invalid response or missing URL.");
-    }
-
+    .then(response => response.json())
+    .then(response => {
+        console.log(response);
+        if (response && response.transaction_external_url) {
+            window.open(response.transaction_external_url, '_blank');
+        } else {
+            throw new Error("Invalid response or missing URL.");
+        }
+    })
+    .catch(err => console.error(err));
+    */
     // For demonstration purposes, just send back the received data
-    res.json({ message: 'NFT minted successfully', data: nftData });
+    res.json({ message: 'NFT minted successfully', data: bounty });
+    
 });
 
 
