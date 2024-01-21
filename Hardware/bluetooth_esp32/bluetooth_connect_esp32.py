@@ -1,3 +1,10 @@
+#pip install pybluez
+#pip install pyserial
+# python -m pip install -e git+https://github.com/pybluez/pybluez.git#egg=pybluez
+# on linux : sudo apt-get install bluetooth libbluetooth-dev
+# sudo python3 -m pip install pybluez
+# I didn't have a specific microsoft c++ package.
+
 import serial
 import time
 from bluetooth import *
