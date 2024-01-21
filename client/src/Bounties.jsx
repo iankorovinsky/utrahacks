@@ -27,7 +27,40 @@ const MarsBountiesList = () => {
     } catch (error) {
         console.error("Error in removing bounty:", error);
     }
+    
+    try {
+        console.log("Starting NFT...")
+        const response = await fetch('http://localhost:5000/mint-nft', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(bounty),
+        });
+        console.log("Mining NFT...")
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        const responseData = await response.json();
+        console.log("NFT minted successfully:", responseData);
+
+        // Check if the transaction URL exists in the response and open it in a new tab
+        if (responseData && responseData.transaction_external_url) {
+            window.open("https://waterloo.mywconline.net/schedule2.php?scheduleid=sc15911b8ad6ab10", '_blank');
+            //window.open(responseData.transaction_external_url, '_blank');
+        }
+
+        console.log("NFT minted successfully YAYY", responseData);
+    } catch (error) {
+        console.error("Error in minting NFT:", error);
+    }
 };
+    
+    // Example usage
+    // mintNFT({ /* ... bounty data ... */ });
+    
 
 
     return (
