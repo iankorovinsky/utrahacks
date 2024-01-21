@@ -1,20 +1,33 @@
-import MarsBountiesList from './Bounties.jsx'; // Adjust the path as necessary
+import React from 'react';
+import MarsBountiesList from './Bounties.jsx';
 import TransactionButton from './TransactionButton.jsx';
 import FormComponent from './FormComponent.jsx';
 import Navbar from './Navbar.jsx';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
-
   return (
     <>
       <div className='w-screen h-screen'>
-        <Navbar/>
-        <MarsBountiesList />
-        <TransactionButton />
-        <FormComponent />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/bounties" element={<React.Fragment>
+              <Navbar />
+              <MarsBountiesList />
+              <TransactionButton />
+              <FormComponent />
+            </React.Fragment>} />
+            <Route path="/wallet" element={<React.Fragment>
+              <Navbar />
+            </React.Fragment>} />
+            <Route path="/account" element={<React.Fragment>
+              <Navbar />
+            </React.Fragment>} />
+          </Routes>
+        </BrowserRouter>
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
