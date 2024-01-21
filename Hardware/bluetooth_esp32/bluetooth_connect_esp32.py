@@ -28,7 +28,7 @@ sock.connect((esp32_bt_address, port))
 print("Connected to {}".format(name))
 
 
-f = open("read_write_file.txt", "r")
+f = open("read_write_file.txt", "r")  #open the file for reading input
 
 
 # Now let's send data
